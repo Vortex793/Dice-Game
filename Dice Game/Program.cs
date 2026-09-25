@@ -11,7 +11,7 @@ namespace Dice_Game
     {
         static void Main(string[] args)
         {
-            double money = 100, bet, profit;
+            double money = 100, bet, profit;    
             int dieTotal;
 
             string choice;
@@ -27,7 +27,7 @@ namespace Dice_Game
             {
                 Console.Clear();
                 
-                Console.WriteLine("What do you want to bet for");
+                Console.WriteLine($"Which outcome do you want to bet for (You have ${money})");
                 Console.WriteLine("1 - Doubles");
                 Console.WriteLine("2 - Not Doubles");
                 Console.WriteLine("3 - Even");
@@ -39,13 +39,14 @@ namespace Dice_Game
 
                 if (choice.ToLower() == "q")
                 {
+                    Console.WriteLine($"You quit with ${money}");
                     end = true;
                     continue;
                 }
 
                 if (choice != "1" && choice != "2" && choice != "3" && choice != "4")
                 {
-                    Console.WriteLine("Invalid choice. Please enter 1, 2, 3, 4, or Q.");
+                    Console.WriteLine("Invalid choice. Please enter 1, 2, 3, 4, or q.");
                     Console.ReadKey();
                     continue;
                 }
@@ -90,7 +91,8 @@ namespace Dice_Game
                 }
                 else if (choice.ToLower() == "q")
                 {
-
+                    Console.WriteLine("You quit with ${money}");
+                    end = true;
                 }
                 else     //anthing else
                 {
@@ -99,7 +101,7 @@ namespace Dice_Game
                 }
 
                     Console.WriteLine();
-                Console.WriteLine("Press any key to continue...");
+                Console.Write("Press any key to continue...");
                 Console.ReadKey();
             }
         }
