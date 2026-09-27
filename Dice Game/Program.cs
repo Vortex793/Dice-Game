@@ -9,6 +9,7 @@ namespace Dice_Game
 {
     internal class Program
     {
+        //CURTIS APFELBECK
         static void Main(string[] args)
         {
             double money = 100, bet, profit;    
@@ -47,6 +48,7 @@ namespace Dice_Game
                 if (choice != "1" && choice != "2" && choice != "3" && choice != "4")
                 {
                     Console.WriteLine("Invalid choice. Please enter 1, 2, 3, 4, or q.");
+                    Console.Write("Press any key to continue...");
                     Console.ReadKey();
                     continue;
                 }
@@ -57,6 +59,8 @@ namespace Dice_Game
                 if (!double.TryParse(Console.ReadLine(), out bet) || bet <= 0 || bet > money)
                 {
                     Console.WriteLine("Invalid bet amount.");
+                    Console.Write("Press any key to continue...");
+                    Console.ReadKey();
                     continue;
                 }
 
@@ -100,7 +104,17 @@ namespace Dice_Game
                     Console.WriteLine($"You rolled {die1.Roll} and {die2.Roll}. You lose! Your new balance is ${money}");
                 }
 
+                if (money <= 0)
+                {
                     Console.WriteLine();
+                    Console.WriteLine("Game over :( you ran out of money.");
+                    Console.Write("Press any key to quit...");
+                    Console.ReadKey();
+                    end = true;
+                    continue;
+                }
+
+                Console.WriteLine();
                 Console.Write("Press any key to continue...");
                 Console.ReadKey();
             }
